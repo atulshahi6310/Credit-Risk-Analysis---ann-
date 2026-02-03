@@ -1,0 +1,10 @@
+# Core Machine Learning
+scikit-learn==1.6.1
+pandas
+numpy
+
+# Web Framework (assuming Flask/Streamlit based on app.py)
+flask
+
+# Serialization
+joblib
