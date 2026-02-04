@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan Default Prediction | Home</title>
+
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #22c55e;
+      --dark: #0f172a;
+      --light: #64748b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #eef2ff, #f0fdf4);
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: var(--card);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav-links a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 80px 60px;
+      gap: 40px;
+    }
+
+    .hero-text h1 {
+      font-size: 44px;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    .hero-text span {
+      color: var(--primary);
+    }
+
+    .hero-text p {
+      margin-top: 20px;
+      font-size: 16px;
+      color: var(--light);
+      max-width: 500px;
+    }
+
+    .hero-buttons {
+      margin-top: 30px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #6366f1);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 15px;
+      box-shadow: 0 10px 20px rgba(79,70,229,0.3);
+    }
+
+    .btn-secondary {
+      background: var(--card);
+      color: var(--primary);
+      padding: 14px 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid var(--primary);
+    }
+
+    /* Hero Image */
+    .hero-img {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .hero-img h3 {
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .hero-img p {
+      color: var(--light);
+      font-size: 14px;
+    }
+
+    /* Features */
+    .features {
+      padding: 60px;
+      background: var(--bg);
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 32px;
+      color: var(--dark);
+      margin-bottom: 40px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+    }
+
+    .feature-card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: var(--light);
+      font-size: 14px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 13px;
+      color: var(--light);
+    }
+
+    @media(max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-text h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">LoanGuard AI</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/predict">Predict</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Predict <span>Loan Default Risk</span><br>Using Artificial Intelligence</h1>
+      <p>
+        A machine learning powered system that helps banks and financial institutions
+        assess credit risk with higher accuracy and transparency.
+      </p>
+      <div class="hero-buttons">
+        <a href="/predict" method = "POST" class="btn-primary">Get Started</a>
+        <a href="#features" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+
+    <div class="hero-img">
+      <h3>Why LoanGuard AI?</h3>
+      <p>
+        ✔ Deep Learning Model<br>
+        ✔ Real-time Prediction<br>
+        ✔ Data-driven Decisions<br>
+        ✔ Scalable Flask Backend
+      </p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>AI-Powered</h3>
+        <p>Uses deep learning to predict loan default probability accurately.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Secure & Reliable</h3>
+        <p>Same preprocessing pipeline as training ensures consistency.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Business Ready</h3>
+        <p>Designed for banks, fintech startups, and credit risk teams.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    © 2026 LoanGuard AI • Flask • TensorFlow • Machine Learning • atulshahi631@gmail.com
+
+  </div>
+
+</body>
+</html>

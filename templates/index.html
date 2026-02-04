@@ -1,11 +1,255 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hey cheaking the flask setup ..................</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan Default Prediction</title>
+
+    <style>
+      :root {
+        --primary: #4f46e5;
+        --secondary: #22c55e;
+        --bg: #f1f5f9;
+        --card: #ffffff;
+        --text-dark: #0f172a;
+        --text-light: #64748b;
+        --border: #cbd5e1;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #eef2ff, #f0fdf4);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+      }
+
+      .container {
+        background: var(--card);
+        width: 100%;
+        max-width: 1200px;
+        padding: 35px;
+        border-radius: 18px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .header h1 {
+        color: var(--text-dark);
+        font-size: 32px;
+        font-weight: 700;
+      }
+
+      .header p {
+        color: var(--text-light);
+        margin-top: 8px;
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+      }
+
+      .field label {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 6px;
+        color: var(--text-dark);
+        font-weight: 600;
+      }
+
+      .field input,
+      .field select {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        font-size: 14px;
+        transition: 0.2s ease;
+      }
+
+      .field input:focus,
+      .field select:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+      }
+
+      .btn-box {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-top: 25px;
+      }
+
+      button {
+        background: linear-gradient(135deg, var(--primary), #6366f1);
+        color: white;
+        padding: 14px 40px;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 14px;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 25px rgba(79, 70, 229, 0.4);
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 12px;
+        color: var(--text-light);
+      }
+
+      @media (max-width: 600px) {
+        .header h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Loan Default Prediction</h1>
+        <p>Smart AI-based credit risk evaluation</p>
+      </div>
+
+      <form action="/predict" method="post">
+        <div class="field">
+          <label>Age</label><input type="number" name="Age" required />
+        </div>
+        <div class="field">
+          <label>Income</label><input type="number" name="Income" required />
+        </div>
+        <div class="field">
+          <label>Loan Amount</label
+          ><input type="number" name="LoanAmount" required />
+        </div>
+        <div class="field">
+          <label>Credit Score</label
+          ><input type="number" name="CreditScore" required />
+        </div>
+        <div class="field">
+          <label>Months Employed</label
+          ><input type="number" name="MonthsEmployed" required />
+        </div>
+        <div class="field">
+          <label>Credit Lines</label
+          ><input type="number" name="NumCreditLines" required />
+        </div>
+        <div class="field">
+          <label>Interest Rate (%)</label
+          ><input type="number" step="0.01" name="InterestRate" required />
+        </div>
+        <div class="field">
+          <label>Loan Term (months)</label
+          ><input type="number" name="LoanTerm" required />
+        </div>
+        <div class="field">
+          <label>DTI Ratio</label
+          ><input type="number" step="0.01" name="DTIRatio" required />
+        </div>
+
+        <div class="field">
+          <label>Education</label
+          ><select name="Education">
+            <option>High School</option>
+            <option>Bachelor</option>
+            <option>Master</option>
+            <option>PhD</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Employment Type</label
+          ><select name="EmploymentType">
+            <option>Full-time</option>
+            <option>Part-time</option>
+            <option>Self-employed</option>
+            <option>Unemployed</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Marital Status</label
+          ><select name="MaritalStatus">
+            <option>Single</option>
+            <option>Married</option>
+            <option>Divorced</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Has Mortgage</label
+          ><select name="HasMortgage">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Has Dependents</label
+          ><select name="HasDependents">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Loan Purpose</label
+          ><select name="LoanPurpose">
+            <option>Home</option>
+            <option>Education</option>
+            <option>Business</option>
+            <option>Personal</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Has Co-Signer</label
+          ><select name="HasCoSigner">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="btn-box">
+          <button type="submit">Predict Default Risk</button>
+        </div>
+      </form>
+      {% if prediction %}
+      <div
+        style="
+          margin-top: 20px;
+          padding: 15px;
+          border-radius: 12px;
+          background: #f8fafc;
+          text-align: center;
+          font-weight: 600;
+        "
+      >
+        Prediction: <span style="color: #4f46e5">{{ prediction }}</span><br />
+        Probability: {{ probability }}%
+        
+      </div>
+      {% endif %}
+
+      <div class="footer">Flask • Machine Learning • Credit Risk AI</div>
+    </div>
+  </body>
 </html>
