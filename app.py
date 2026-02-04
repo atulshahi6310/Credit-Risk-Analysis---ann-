@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__ ))
 PREPROCESSOR_PATH = os.path.join(BASE_DIR, "models", "preprocessor.pkl")
-model_path = r'D:\loan_prediction\models\loan_default_model.keras'
+model_path = os.path.join(BASE_DIR, "models", "loan_default_model.keras")
 
 
 with open(PREPROCESSOR_PATH, "rb") as f:
@@ -75,4 +75,4 @@ def predict():
 
 
 if __name__ =="__main__":
-    app.run(debug=True ,host='0.0.0.0' , port = 5000)
+    app.run(debug=True, host='0.0.0.0', port=7860)
